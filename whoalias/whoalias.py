@@ -1,7 +1,9 @@
 import os
 import asyncio
 
+from .instagram import scrape as ig_scrape
 from .cli import build_aliases_array, splash_text
+
 
 async def test_func(text):
     print(text)
@@ -22,16 +24,16 @@ class WhoAlias():
         # Begin event loop
         try:
             self.loop = asyncio.get_event_loop()
-            self.loop.run_until_complete(self.main(all_aliases=self.all_aliases))
+            self.loop.run_until_complete(self.main())
         except Exception as e:
             exit(str(e))
         #finally:
             #loop.close()
 
-    async def main(self, all_aliases):
+    async def main(self):
         print(" [*] Initializing WhoAlias.main() ..")
-
-        t1 = self.loop.create_task(test_func1("Hello 1"))
+        # Start Instagram scrape
+        t1 = self.loop.create_task(ig_scrape(self.all_aliases))
         t2 = self.loop.create_task(test_func("Hello 2"))
 
         await asyncio.wait([t1, t2])
