@@ -1,6 +1,6 @@
 <h1>WhoAlias</h1>
 
-Digital footprint lookup tool written asynchronously in Python3.
+Digital footprint lookup tool coded asynchronously in Python3.
 
 #### Usage
 ```sh
