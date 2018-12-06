@@ -1,16 +1,14 @@
-import os
 import asyncio
+import os
 
-from .instagram import scrape as ig_scrape
 from .cli import build_aliases_array, splash_text
+from .facebook import scrape as fb_scrape
+from .github import scrape as gb_scrape
+from .instagram import scrape as ig_scrape
+from .league import scrape as lg_scrape
+from .twitter import scrape as tw_scrape
 
 
-async def test_func(text):
-    print(text)
-
-async def test_func1(word):
-    await asyncio.sleep(1)
-    print(word)
 
 class WhoAlias():
     def __init__(self, all_aliases):
@@ -32,12 +30,22 @@ class WhoAlias():
 
     async def main(self):
         print(" [*] Initializing WhoAlias.main() ..")
-        # Start Instagram scrape
-        t1 = self.loop.create_task(ig_scrape(self.all_aliases))
-        t2 = self.loop.create_task(test_func("Hello 2"))
+        # Social medias
+        # Facebook scrape
+        t1 = self.loop.create_task(fb_scrape(self.all_aliases))
+        # Twitter scrape
+        t2 = self.loop.create_task(tw_scrape(self.all_aliases))
+        # Github scrape
+        t3 = self.loop.create_task(gb_scrape(self.all_aliases))
+        # Instagram scrape
+        t4 = self.loop.create_task(ig_scrape(self.all_aliases))
 
-        await asyncio.wait([t1, t2])
-        return t1, t2
+        # Games
+        # # League of Legends scrape
+        t5 = self.loop.create_task(lg_scrape(self.all_aliases))
+
+        await asyncio.wait([t1, t2, t3, t4, t5])
+        return t1, t2, t3, t4, t5
 
 
 def run():
