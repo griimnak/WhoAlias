@@ -4,6 +4,7 @@ import sys
 from ._cli import build_aliases_array
 from .facebook import scrape as fb_scrape
 from .github import scrape as gb_scrape
+from .google import scrape as go_scrape
 from .instagram import scrape as ig_scrape
 from .league import scrape as lg_scrape
 from .twitter import scrape as tw_scrape
@@ -40,13 +41,14 @@ class WhoAlias():
         t2 = tw_scrape(self.all_aliases)
         t3 = gb_scrape(self.all_aliases)
         t4 = ig_scrape(self.all_aliases)
+        t5 = go_scrape(self.all_aliases)
 
         # Games
         # t5 = lg_scrape(self.all_aliases)
 
-        await asyncio.wait([t1, t2, t3, t4])
+        await asyncio.wait([t1, t2, t3, t4, t5])
 
-        print("\n\n [I= Instagram, G= Github, F= Facebook, T= Twitter]")
+        print("\n\n [I= Instagram, G= Github, O= Google, F= Facebook, T= Twitter]")
 
 
 def run():
