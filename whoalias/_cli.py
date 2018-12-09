@@ -58,7 +58,17 @@ def build_aliases_array(argv):
         # Help option
         if opt in ("-h", "--help"):
             print(splash_text)
-            print(usage_text)
+            print('''
+whoalias.py -p <primary_alias> --alts <alt_alias> <alt_alias2> ..
+
+positional arguments:
+  -p, --primary    primary alias to lookup
+
+optional arguments:
+  -a, --alts       alternate aliases relevant to primary alias for lookup.
+  -h, --help       show this help message and exit.
+  -v, --verbosity  increase output verbosity.
+            ''')
 
             sys.exit()
 
