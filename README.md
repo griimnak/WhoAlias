@@ -32,15 +32,16 @@ $ source YOUR_ENV_NAME/Scripts/activate
 (ENV) $ pip install -r requirements.txt
 ```
 
-##### Completion Log
-##### &#10004; <a href="https://github.com/griimnak/WhoAlias/blob/master/whoalias/instagram.py">instagram.py</a>
+Completion Log
+-------------------
+&#10004; <a href="https://github.com/griimnak/WhoAlias/blob/master/whoalias/instagram.py">instagram.py</a>
 
-##### &#10006; github.py
+&#10006; github.py
 
-##### &#10006; facebook.py
+&#10006; facebook.py
 
-##### &#10006; twitter.py
+&#10006; twitter.py
 
-##### &#10006; linkedin.py
+&#10006; linkedin.py
 
-##### &#10006; google.py
+&#10006; google.py
