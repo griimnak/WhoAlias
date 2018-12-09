@@ -1,3 +1,4 @@
+import asyncio
 import os
 import re
 import shutil
@@ -77,6 +78,7 @@ async def scrape(all_aliases):
                         shutil.copyfileobj(image.raw, out_file)
                     del image
 
+                    await asyncio.sleep(0.01)
                 except Exception as e:
                     print(" [!] Ignoring error: "+str(e)+"")
                     pass
