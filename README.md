@@ -4,6 +4,11 @@ A digital footprint lookup tool / alias scraper coded asynchronously in Python3.
 
 *Requires no API tokens whatsoever*
 
+
+##### Youtube Demonstration
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/qBQ158C0_co/0.jpg)](https://www.youtube.com/watch?v=qBQ158C0_co)
+
+
 #### Usage
 ```sh
 python whoalias.py -p <primary_alias> --alts <alt_alias> <alt_alias2> ..
