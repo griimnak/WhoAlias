@@ -1,44 +1,87 @@
 import os
+import sys
+import getopt
 
-splash_text = ''' WhoAlias.py - Digital footprint lookup and handle scraper
- Author: github.com/griimnak
--------------------------------------------------------------------------------
- Please enter the main alias of desired target to begin.
- Additionally afterwards, you may enter alternative aliases for this target.
+
+splash_text = '''
+ __        ___             _    _ _
+ \\ \\      / / |__   ___   / \\  | (_) __ _ ___
+  \\ \\ /\\ / /| '_ \\ / _ \\ / _ \\ | | |/ _` / __|
+   \\ V  V / | | | | (_) / ___ \\| | | (_| \\__ \\
+    \\_/\\_/  |_| |_|\\___/_/   \\_\\_|_|\\__,_|___/
+WhoAlias: Digital footprint lookup tool / alias scraper
+github.com/griimnak
 '''
 
-def build_aliases_array():
-    # All aliases
-    aliases = []
+usage_text = "usage: whoalias.py -p <primary_alias> --alts <alt_alias> <alt_alias2> .."
+help_text  = "help: whoalias.py --help"
 
-    # Recycle function
-    def query():
-        alias = input("WhoAlias:~# ")
-        return alias
+def no_value_error(opt):
+    """ Raise if option has no arg """
+    print(f"You left the `{opt}` option empty.")
+    sys.exit(2)
 
-    # Additional query
-    def additional_query():
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print("\n [*] Enter an alternative name for this alias, or press enter to move on.")
-        print(" [*] "+str(aliases)+"\n")
-        real_alias = query()
-        if real_alias == "":
-            return aliases
-        else:
-            aliases.append(real_alias)
-            additional_query()
+def confirm_aliases(aliases):
+    print(f" [*] [*] Looking up {aliases[0]}")
+    print(f" [>] [>] Full alias list for {aliases[0]}: {aliases}")
+    print(" [*] [*] Confirm by typing Y or N followed by enter.\n")
+    confirm = input(" Y/N:~# ")
+    if confirm == "Y":
+        pass
+    else:
+        print(" Aborted.")
+        sys.exit(2)
 
-    # First query
-    def initial_query():
-        real_alias = query()
-        if real_alias == "":
-            print(" [!] You need to type atleast one alias to lookup.")
-            initial_query()
-        else:
-            aliases.append(real_alias)
-            # Additional aliases
-            additional_query()
 
-    # Make the initial query
-    initial_query()
-    return aliases
+def build_aliases_array(argv):
+    """ Cli array builder
+        Create short opts and long opts and help dialog
+        Append values from :arg -a: and :arg --alts: to :param all_aliases:
+    """
+
+    # Create alias list
+    all_aliases = []
+    alt_aliases = []
+
+    # Query cli
+    try:
+        opts, args = getopt.getopt(argv,"hp:a:",["primary=","alts=","help"])
+        #                          args,  opts, [       long_options      ]
+    except getopt.GetoptError:
+        # Print hint if no options are selected
+        print(usage_text)
+        sys.exit(2)
+
+    # Define options
+    for opt, arg in opts:
+
+        # Help option
+        if opt in ("-h", "--help"):
+            print(splash_text)
+            print(usage_text)
+
+            sys.exit()
+
+        # Primary alias option
+        elif opt in ("-p", "--primary"):
+            if arg == "":
+                no_value_error(opt)
+            # Append primary alias
+            all_aliases.append(arg)
+
+        # Alternative aliases option
+        elif opt in ("-a", "--alts"):
+            # :param alt_aliases: == all input after :arg -a:
+            alt_aliases = sys.argv[4:]
+
+            # Append each :param alias: in :param alt_aliases:
+            for alias in alt_aliases:
+                all_aliases.append(alias)
+
+    if all_aliases == []:
+        print(help_text)
+        sys.exit(2)
+
+    # Confirm and :return all_aliases:
+    confirm_aliases(all_aliases)
+    return all_aliases

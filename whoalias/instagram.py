@@ -7,22 +7,35 @@ import requests
 
 
 
-
 async def scrape(all_aliases):
-    print("\n [*] Searching Instagram footprint ..")
+    """ Instagram scrape function
+        Count :param aliases_tested: and :param aliases_found:
+        Run the scrape function for each :param alias: in :param all_aliases:
+        :return: :param aliases_tested: and :param aliases_found:
+    """
+    aliases_tested = 0
+    aliases_found = 0
 
     for alias in all_aliases:
-        """ Might add a config file to manage all URLS ..
+        """ NOTE: Might add a config file to manage all URLS ..
         """
         URL = f'https://instagram.com/{alias}/'
 
         response = requests.get(URL)
 
+
+        # Count :param aliases_tested: if :param response:
+        aliases_tested += 1
+
         if response.status_code == 404:
-            print(f" [*] https://instagram.com/{alias}/ returned nothing ..")
+            # print(f" [*] https://instagram.com/{alias}/ returned nothing ..")
+            pass
 
         elif response.status_code == 200:
-            print(f" [!] https://instagram.com/{alias}/ HIT! Logging to output ..")
+            # Count to :param aliases_found:
+            aliases_found += 1
+
+            # print(f" [>] [>] {URL} .. -> Potential match logged")
 
             # Get Instagram JSON from HTML because their frontend disallows traditional scraping
             json_match = re.search(r'window\._sharedData = (.*);</script>', response.text)
@@ -30,13 +43,13 @@ async def scrape(all_aliases):
             profile_json = json.loads(json_match.group(1))['entry_data']['ProfilePage'][0]['graphql']['user']
 
             # Followage and Bio
-            print(f" [+] {alias} alledged real name: {profile_json['full_name']} ..")
-            print(f" [+] {alias} has {profile_json['edge_owner_to_timeline_media']['count']} instagram posts ..")
-            print(f" [+] {alias} follows {profile_json['edge_follow']['count']} users and has {profile_json['edge_followed_by']['count']} instagram followers ..")
-            print(f" [+] {profile_json['biography']}")
+            # print(f" [+] {alias} alledged real name: {profile_json['full_name']} ..")
+            # print(f" [+] {alias} has {profile_json['edge_owner_to_timeline_media']['count']} instagram posts ..")
+            # print(f" [+] {alias} follows {profile_json['edge_follow']['count']} users and has {profile_json['edge_followed_by']['count']} instagram followers ..")
+            # print(f" [+] {profile_json['biography']}")
 
             # Begin saving instagram photoa
-            print(f" [*] Saving instagram library of {alias} to /output/{alias}")
+            print(f" [*] [I] Cloning library of {alias} to /output/{alias}/ ..")
             count = 0
             for image_link in profile_json['edge_owner_to_timeline_media']['edges']:
                 count += 1
@@ -49,7 +62,7 @@ async def scrape(all_aliases):
                     # Set output format
                     image_path = f"output/{alias}/{str(count)}.jpg"
 
-                    print(f" [+] Downloading photo: {image_path} ..")
+                    # print(f" [+] Downloading photo: {image_path} ..")
                     # Make dirs if needed
                     os.makedirs(os.path.dirname(image_path), exist_ok=True)
 
@@ -61,3 +74,4 @@ async def scrape(all_aliases):
                 except Exception as e:
                     print(" [!] Ignoring error: "+str(e)+"")
                     pass
+    print(f" [*] [I] {aliases_tested} aliases tested, {aliases_found} potential matches logged.")
