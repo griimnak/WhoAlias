@@ -42,4 +42,4 @@ async def scrape(all_aliases):
                         out.write(url[0])
             # print(f" [>] [>] {URL} .. -> Potential match logged")
 
-    print(f" [*] [O] {aliases_tested} aliases tested, {aliases_found} potential matches logged.")
+    print(f" [*] [O] {aliases_tested} aliases tested, Google summary logged.")

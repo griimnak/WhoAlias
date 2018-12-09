@@ -30,4 +30,4 @@ async def scrape(all_aliases):
             out.write(f"Potential Github account for {alias}: {URL}")
             # print(f" [>] [>] {URL} .. -> Potential match logged")
 
-    print(f" [*] [G] {aliases_tested} aliases tested, {aliases_found} potential matches logged.")
+    print(f" [*] [G] {aliases_tested} aliases tested, {aliases_found} potential Github matches logged.")

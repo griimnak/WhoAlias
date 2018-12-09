@@ -30,4 +30,4 @@ async def scrape(all_aliases):
             out.write(f"Potential Twitter account for {alias}: {URL}")
             # print(f" [>] [>] {URL} .. -> Potential match logged")
 
-    print(f" [*] [T] {aliases_tested} aliases tested, {aliases_found} potential matches logged.")
+    print(f" [*] [T] {aliases_tested} aliases tested, {aliases_found} potential Twitter matches logged.")

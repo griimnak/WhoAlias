@@ -82,4 +82,4 @@ async def scrape(all_aliases):
                 except Exception as e:
                     print(" [!] Ignoring error: "+str(e)+"")
                     pass
-    print(f" [*] [I] {aliases_tested} aliases tested, {aliases_found} potential matches logged.")
+    print(f" [*] [I] {aliases_tested} aliases tested, {aliases_found} potential Instagram matches logged.")

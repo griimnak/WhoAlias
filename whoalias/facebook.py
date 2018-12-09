@@ -30,4 +30,4 @@ async def scrape(all_aliases):
             out.write(f"Potential Facebook account for {alias}: {URL}")
             # print(f" [>] [>] {URL} .. -> Potential match logged")
 
-    print(f" [*] [F] {aliases_tested} aliases tested, {aliases_found} potential matches logged.")
+    print(f" [*] [F] {aliases_tested} aliases tested, {aliases_found} potential Facebook matches logged.")
