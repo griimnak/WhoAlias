@@ -4,13 +4,28 @@ import getopt
 
 
 splash_text = '''
- __        ___             _    _ _
- \\ \\      / / |__   ___   / \\  | (_) __ _ ___
-  \\ \\ /\\ / /| '_ \\ / _ \\ / _ \\ | | |/ _` / __|
-   \\ V  V / | | | | (_) / ___ \\| | | (_| \\__ \\
-    \\_/\\_/  |_| |_|\\___/_/   \\_\\_|_|\\__,_|___/
-WhoAlias: Digital footprint lookup tool / alias scraper
-github.com/griimnak
+  .OOOOOOOOOOOOOOO @@                                   @@ OOOOOOOOOOOOOOOO.
+  OOOOOOOOOOOOOOOO @@                                    @@ OOOOOOOOOOOOOOOO
+  OOOOOOOOOO'''''' @@                                    @@ ```````OOOOOOOOO
+  OOOOO'' aaa@@@@@@@@@@@@@@@@@@@@"""                   """""""""@@aaaa `OOOO
+  OOOOO,""""@@@@@@@@@@@@@@""""                                     a@"" OOOA
+  OOOOOOOOOoooooo,                                            |OOoooooOOOOOS
+  OOOOOOOOOOOOOOOOo,                                          |OOOOOOOOOOOOC
+  OOOOOOOOOOOOOOOOOO                                         ,|OOOOOOOOOOOOI
+  OOOOOOOOOOOOOOOOOO @                                       |OOOOOOOOOOOOOI
+  OOOOOOOOOOOOOOOOO'@                                        OOOOOOOOOOOOOOb
+  OOOOOOOOOOOOOOO'a'                                         |OOOOOOOOOOOOOy
+  OOOOOOOOOOOOOO''                                        aa`OOOOOOOOOOOP
+  OOOOOOOOOOOOOOb,..                                          `@aa``OOOOOOOh
+  OOOOOOOOOOOOOOOOOOo                                           `@@@aa OOOOo
+  OOOOOOOOOOOOOOOOOOO|                                             @@@ OOOOe
+  OOOOOOOOOOOOOOOOOOO@                               aaaaaaa       @@',OOOOn
+  OOOOOOOOOOOOOOOOOOO@                        aaa@@@@@@@@""        @@ OOOOOi
+  OOOOOOOOOO~~ aaaaaa"a                 aaa@@@@@@@@@@""            @@ OOOOOx
+  OOOOOO aaaa@"""""""" ""            @@@@@@@@@@@@""               @@@|`OOOO'
+  OOOOOOOo`@@a                  aa@@  @@@@@@@""         a@        @@@@ OOOO9
+  OOOOOOO'  `@@a               @@a@@   @@""           a@@   a     |@@@ OOOO3
+  `OOOO'       `@    aa@@       aaa"""          @a        a@     a@@@',OOOO'
 '''
 
 usage_text = "usage: whoalias.py -p <primary_alias> --alts <alt_alias> <alt_alias2> .."
@@ -57,6 +72,7 @@ def build_aliases_array(argv):
 
         # Help option
         if opt in ("-h", "--help"):
+            os.system('cls' if os.name == 'nt' else 'clear')
             print(splash_text)
             print('''
 usage: whoalias.py -p <primary_alias> --alts <alt_alias> <alt_alias2> ..
