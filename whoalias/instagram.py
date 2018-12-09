@@ -5,6 +5,8 @@ import json
 
 import requests
 
+from ._writer import Output
+
 
 
 async def scrape(all_aliases):
@@ -42,14 +44,18 @@ async def scrape(all_aliases):
 
             profile_json = json.loads(json_match.group(1))['entry_data']['ProfilePage'][0]['graphql']['user']
 
+            # Write profile data to txt file
+            out = Output("Instagram", alias)
+
             # Followage and Bio
-            # print(f" [+] {alias} alledged real name: {profile_json['full_name']} ..")
-            # print(f" [+] {alias} has {profile_json['edge_owner_to_timeline_media']['count']} instagram posts ..")
-            # print(f" [+] {alias} follows {profile_json['edge_follow']['count']} users and has {profile_json['edge_followed_by']['count']} instagram followers ..")
-            # print(f" [+] {profile_json['biography']}")
+            out.write(f"Instagram summary for `{alias}` {URL}")
+            out.write(f"{alias} alledged real name: {profile_json['full_name']}")
+            out.write(f"{alias} has {profile_json['edge_owner_to_timeline_media']['count']} instagram posts")
+            out.write(f"{alias} follows {profile_json['edge_follow']['count']} users and has {profile_json['edge_followed_by']['count']} instagram followers")
+            out.write(f"'{profile_json['biography']}'")
 
             # Begin saving instagram photoa
-            print(f" [*] [I] Cloning library of {alias} to /output/{alias}/ ..")
+            print(f" [*] [I] Cloning library of {alias} to /output/{alias}/instagram/ ..")
             count = 0
             for image_link in profile_json['edge_owner_to_timeline_media']['edges']:
                 count += 1
@@ -60,7 +66,7 @@ async def scrape(all_aliases):
                     image.raw.decode_content = True
 
                     # Set output format
-                    image_path = f"output/{alias}/{str(count)}.jpg"
+                    image_path = f"output/{alias}/instagram/{str(count)}.jpg"
 
                     # print(f" [+] Downloading photo: {image_path} ..")
                     # Make dirs if needed
