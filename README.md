@@ -7,6 +7,8 @@ A digital footprint lookup tool / alias scraper coded asynchronously in Python3.
 
 ##### Youtube Demonstration <a target="_blank" href="https://www.youtube.com/watch?v=qBQ158C0_co">(Click here)</a>
 
+###### Using least ammount of modules possible
+requests, BeautifulSoup
 
 #### Usage
 ```sh
