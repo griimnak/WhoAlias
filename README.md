@@ -1,6 +1,7 @@
 <h1>WhoAlias</h1>
 
 A digital footprint lookup tool / alias scraper coded asynchronously in Python3. 
+
 *Requires no API tokens whatsoever*
 
 #### Usage
