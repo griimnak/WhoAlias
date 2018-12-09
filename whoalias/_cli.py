@@ -59,7 +59,7 @@ def build_aliases_array(argv):
         if opt in ("-h", "--help"):
             print(splash_text)
             print('''
-whoalias.py -p <primary_alias> --alts <alt_alias> <alt_alias2> ..
+usage: whoalias.py -p <primary_alias> --alts <alt_alias> <alt_alias2> ..
 
 positional arguments:
   -p, --primary    primary alias to lookup

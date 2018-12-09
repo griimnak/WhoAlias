@@ -1,5 +1,6 @@
 import requests
 
+from ._writer import Output
 
 
 
@@ -24,6 +25,9 @@ async def scrape(all_aliases):
             # Count to :param aliases_found:
             aliases_found += 1
 
+            # Writer instance
+            out = Output("Twitter", alias)
+            out.write(f"Potential Twitter account for {alias}: {URL}")
             # print(f" [>] [>] {URL} .. -> Potential match logged")
 
     print(f" [*] [T] {aliases_tested} aliases tested, {aliases_found} potential matches logged.")

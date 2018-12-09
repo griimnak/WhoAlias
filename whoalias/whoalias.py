@@ -36,18 +36,17 @@ class WhoAlias():
         """
         print(" [*] [*] Initializing WhoAlias.main() ..")
         # Social medias
-        t1 = loop.create_task(fb_scrape(self.all_aliases))
-        t2 = loop.create_task(tw_scrape(self.all_aliases))
-        t3 = loop.create_task(gb_scrape(self.all_aliases))
-        t4 = loop.create_task(ig_scrape(self.all_aliases))
+        t1 = fb_scrape(self.all_aliases)
+        t2 = tw_scrape(self.all_aliases)
+        t3 = gb_scrape(self.all_aliases)
+        t4 = ig_scrape(self.all_aliases)
 
         # Games
-        # t5 = loop.create_task(lg_scrape(self.all_aliases))
+        # t5 = lg_scrape(self.all_aliases)
 
         await asyncio.wait([t1, t2, t3, t4])
 
         print("\n\n [I= Instagram, G= Github, F= Facebook, T= Twitter]")
-        return t1, t2, t3, t4
 
 
 def run():
