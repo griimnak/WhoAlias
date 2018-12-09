@@ -1,11 +1,19 @@
 <h1>WhoAlias</h1>
 
-Digital footprint lookup tool coded asynchronously in Python3.
+A digital footprint lookup tool / alias scraper coded asynchronously in Python3. 
+*Requires no API tokens whatsoever*
 
 #### Usage
 ```sh
-$ python whoalias.py
-# Follow the steps promted once launching
+python whoalias.py -p <primary_alias> --alts <alt_alias> <alt_alias2> ..
+
+positional arguments:
+  -p, --primary    primary alias to lookup
+
+optional arguments:
+  -a, --alts       alternate aliases relevant to primary alias for lookup.
+  -h, --help       show this help message and exit.
+  -v, --verbosity  increase output verbosity.
 ```
 
 #### Setup
