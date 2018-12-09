@@ -50,4 +50,4 @@ Completion Log
 
 &#10006; linkedin.py
 
-&#10006; google.py
+&#10004; <a href="https://github.com/griimnak/WhoAlias/blob/master/whoalias/google.py">google.py</a>
