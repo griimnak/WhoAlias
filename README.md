@@ -12,7 +12,31 @@ requests, BeautifulSoup
 
 #### Usage
 ```sh
-python whoalias.py -p <primary_alias> --alts <alt_alias> <alt_alias2> ..
+  .OOOOOOOOOOOOOOO @@                                   @@ OOOOOOOOOOOOOOOO.
+  OOOOOOOOOOOOOOOO @@                                    @@ OOOOOOOOOOOOOOOO
+  OOOOOOOOOO @@                                    @@ ```````OOOOOOOOO
+  OOOOO'' aaa@@@@@@@@@@@@@@@@@@@@"""                   """""""""@@aaaa `OOOO
+  OOOOO,""""@@@@@@@@@@@@@@""""                                     a@"" OOOA
+  OOOOOOOOOoooooo,                                            |OOoooooOOOOOS
+  OOOOOOOOOOOOOOOOo,                                          |OOOOOOOOOOOOC
+  OOOOOOOOOOOOOOOOOO                                         ,|OOOOOOOOOOOOI
+  OOOOOOOOOOOOOOOOOO @                                       |OOOOOOOOOOOOOI
+  OOOOOOOOOOOOOOOOO'@                                        OOOOOOOOOOOOOOb
+  OOOOOOOOOOOOOOO'a'                                         |OOOOOOOOOOOOOy
+  OOOOOOOOOOOOOO''                                        aa`OOOOOOOOOOOP
+  OOOOOOOOOOOOOOb,..                                          `@aa``OOOOOOOh
+  OOOOOOOOOOOOOOOOOOo                                           `@@@aa OOOOo
+  OOOOOOOOOOOOOOOOOOO|                                             @@@ OOOOe
+  OOOOOOOOOOOOOOOOOOO@                               aaaaaaa       @@',OOOOn
+  OOOOOOOOOOOOOOOOOOO@                        aaa@@@@@@@@""        @@ OOOOOi
+  OOOOOOOOOO~~ aaaaaa"a                 aaa@@@@@@@@@@""            @@ OOOOOx
+  OOOOOO aaaa@"""""""" ""            @@@@@@@@@@@@""               @@@|`OOOO'
+  OOOOOOOo`@@a                  aa@@  @@@@@@@""         a@        @@@@ OOOO9
+  OOOOOOO'  `@@a               @@a@@   @@""           a@@   a     |@@@ OOOO3
+  `OOOO'       `@    aa@@       aaa"""          @a        a@     a@@@',OOOO'
+
+
+usage: whoalias.py -p <primary_alias> --alts <alt_alias> <alt_alias2> ..
 
 positional arguments:
   -p, --primary    primary alias to lookup
@@ -38,7 +62,7 @@ $ source YOUR_ENV_NAME/Scripts/activate
 (ENV) $ pip install -r requirements.txt
 ```
 
-Completion Log
+100% Complete
 -------------------
 &#10004; <a href="https://github.com/griimnak/WhoAlias/blob/master/whoalias/instagram.py">instagram.py</a>
 
