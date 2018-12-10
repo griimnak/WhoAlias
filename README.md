@@ -36,7 +36,7 @@ requests, BeautifulSoup
   `OOOO'       `@    aa@@       aaa"""          @a        a@     a@@@',OOOO'
 
 
-usage: whoalias.py -p <primary_alias> --alts <alt_alias> <alt_alias2> ..
+usage: whoalias.py -p [primary_alias] --alts [alt_alias] [alt_alias2] ..
 
 positional arguments:
   -p, --primary    primary alias to lookup
